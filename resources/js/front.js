@@ -5,7 +5,7 @@
  */
 
 require('./bootstrap');
-window.Vue = required('vue');
+window.Vue = require('vue');
 
 import App from './components/App.vue'
 
