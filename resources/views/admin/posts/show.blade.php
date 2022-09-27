@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    <main class="justify-content-center d-flex">
+    <header>
+        <div class="d-flex justify-content-center">
+            <a href="{{ route('admin.posts.create') }}" class="btn btn-success mr-4">Crea Nuovo Post</a>
+        </div>
+    </header>
+    <main class="justify-content-center d-flex mt-5">
         <div class="card mb-3 -flex justify-content-center" style="max-width: 540px;">
             <div class="row no-gutters">
                 <div class="col-md-4">
