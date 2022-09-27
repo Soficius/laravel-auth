@@ -11,6 +11,7 @@
                     <th scope="col">Slug</th>
                     <th scope="col">Creato il</th>
                     <th scope="col">Modificato il</th>
+                    <th scope="col">Azioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,14 @@
                         <td>{{ $post->slug }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td>{{ $post->updated_at }}</td>
+                        <td class="d-flex">
+                            <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary mr-4">Vedi</a>
+                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Elimina Post</button>
+                            </form>
+                        </td>
                         <td></td>
                     </tr>
                 @empty
