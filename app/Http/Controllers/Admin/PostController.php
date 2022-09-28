@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -27,7 +28,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $post = new Post();
+        // con select mi passo solo i campi di cui ho bisogno
+        $categories = Category::select('id', 'label')->get();
+        return view('admin.posts.create', compact('post', 'categories'));
     }
 
     /**

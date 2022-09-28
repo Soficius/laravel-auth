@@ -20,7 +20,16 @@
                 <label for="contenut">contenuto</label>
                 <textarea class="form-control" id="contenut" rows="3" name="content">{{ old('content') }}</textarea>
             </div>
-            <div>
+            <div class="form-group">
+                <label for="category_id">Categoria</label>
+                <select class="form-control" id="category_id" name="category_id">
+                    <option>Nessuna Categoria</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->label }}">{{ $category->label }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mt-4">
                 <button type="submit" class="btn btn-success">Salva</button>
             </div>
         </form>
