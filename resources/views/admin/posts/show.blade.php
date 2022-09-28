@@ -24,6 +24,7 @@
     </main>
     <footer class="justify-content-center d-flex">
         <a href="{{ route('admin.posts.index') }}" class="btn btn-primary mr-4">Torna indietro</a>
+        <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning mr-4">Modifica</a>
         <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
             @csrf
             @method('DELETE')
