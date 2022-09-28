@@ -59,18 +59,4 @@
             @endforelse
         </tbody>
     </table>
-    {{-- conferma prima di eliminare un post --}}
-    @section('js')
-        <script>
-            const deleteForm = document.querySelectorAll('.delete-form');
-            console.log('confirm bounded:', deleteForm);
-            deleteForm.forEach(form => {
-                form.addEventListener('submit', (event) => {
-                    event.preventDefault();
-                    const hasConfirmed = confirm('sei sicuro di eliminare questo comic?');
-                    if (hasConfirmed) form.submit();
-                });
-            });
-        </script>
-    @endsection
 @endsection

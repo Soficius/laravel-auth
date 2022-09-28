@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+    @if (session('delete'))
+        <div class="green border rounded bg-white p-1 width-400">{{ session('delete') }}</div>
+    @endif
     <header>
         <div class="d-flex justify-content-center">
             <a href="{{ route('admin.posts.create') }}" class="btn btn-success mr-4">Crea Nuovo Post</a>
@@ -33,7 +36,7 @@
     <footer class="justify-content-center d-flex">
         <a href="{{ route('admin.posts.index') }}" class="btn btn-primary mr-4">Torna indietro</a>
         <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning mr-4">Modifica</a>
-        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+        <form action="{{ route('admin.posts.destroy', $post->id) }}" class="delete-form" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">Elimina Post</button>

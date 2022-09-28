@@ -84,7 +84,18 @@
         <main class="py-4">
             @yield('content')
         </main>
-        @yield('js')
+        {{-- conferma prima di eliminare un post --}}
+        <script>
+            const deleteForm = document.querySelectorAll('.delete-form');
+            console.log('confirm bounded:', deleteForm);
+            deleteForm.forEach(form => {
+                form.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const hasConfirmed = confirm('Sei sicuro di eliminare questo post?');
+                    if (hasConfirmed) form.submit();
+                });
+            });
+        </script>
     </div>
 </body>
 
