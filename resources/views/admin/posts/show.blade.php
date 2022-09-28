@@ -15,6 +15,14 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
                         <p class="card-text">{{ $post->content }}</p>
+                        {{-- l'if mi permette di non spaccare il codice se nel post non è presente nessuna categoria --}}
+                        <p>Categoria:
+                            @if ($post->category)
+                                {{ $post->category->label }}
+                            @else
+                                Nessuna
+                            @endif
+                        </p>
                         <p>Creato il<time> {{ $post->created_at }} </time></p>
                         <p>Modificato il<time> {{ $post->updated_at }} </time> </p>
                     </div>

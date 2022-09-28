@@ -8,7 +8,7 @@
             @csrf
             <div class="form-group">
                 <label for="title">title</label>
-                <input type="text" class="form-control" id="title" placeholder="title" name="title"
+                <input type="text" class="form-control" id="title" placeholder="title" name="title" required
                     value="{{ old('title') }}">
             </div>
             <div class="form-group">
@@ -18,14 +18,15 @@
             </div>
             <div class="form-group">
                 <label for="contenut">contenuto</label>
-                <textarea class="form-control" id="contenut" rows="3" name="content">{{ old('content') }}</textarea>
+                <textarea class="form-control" id="contenut" rows="3" name="content" required>{{ old('content') }}</textarea>
             </div>
             <div class="form-group">
                 <label for="category_id">Categoria</label>
                 <select class="form-control" id="category_id" name="category_id">
                     <option>Nessuna Categoria</option>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->label }}">{{ $category->label }}</option>
+                        <option @if (old('category_id') == $category->id) selected @endif value="{{ $category->id }}">
+                            {{ $category->label }}</option>
                     @endforeach
                 </select>
             </div>
