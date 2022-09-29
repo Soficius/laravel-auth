@@ -41,4 +41,9 @@ class User extends Authenticatable
         // utilizziamo il verbp hasMany perchè category è l'istanza forte
         return $this->hasMany('App\Models\Post');
     }
+    public function userDetail()
+    {
+        // il verbo che usiamo è belong perche post è l'istanza debole
+        return $this->belongsTo('App\Models\UserDetail');
+    }
 }

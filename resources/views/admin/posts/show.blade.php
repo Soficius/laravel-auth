@@ -16,7 +16,14 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $post->title }}</h5>
+                        <h2 class="card-title">{{ $post->title }}</h2>
+                        <p><strong>Autore</strong>
+                            @if ($post->user)
+                                {{ $post->user->name }}
+                            @else
+                                anonimo
+                            @endif
+                        </p>
                         <p class="card-text">{{ $post->content }}</p>
                         {{-- l'if mi permette di non spaccare il codice se nel post non è presente nessuna categoria --}}
                         <p>Categoria:

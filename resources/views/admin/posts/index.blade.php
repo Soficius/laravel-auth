@@ -30,6 +30,7 @@
                     <th scope="row">{{ $post->id }}</th>
                     <td> <img src="{{ $post->image }}" alt="" class="img-fluid"></td>
                     <td>
+                        {{-- in questo modo se non scelgo la categoria il codise non va in errore --}}
                         @if ($post->category)
                             {{ $post->category->label }}
                         @else
@@ -37,7 +38,14 @@
                         @endif
                     </td>
                     <td>{{ $post->title }}</td>
-                    <td>{{ $post->user->name }}</td>
+                    <td>
+                        {{-- in questo modo se non se l'autore è anonimo il codice non va in errore --}}
+                        @if ($post->user)
+                            {{ $post->user->name }}
+                        @else
+                            Anonimo
+                        @endif
+                    </td>
                     <td>{{ $post->slug }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td>{{ $post->updated_at }}</td>
