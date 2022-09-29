@@ -39,7 +39,7 @@ class AddCategoryIdToPostsTable extends Migration
         Schema::table('posts', function (Blueprint $table) {
 
             // elimina la relazione (FK)
-            $table->dropForeign('posts_category_id_foreing');
+            $table->dropForeign('posts_category_id_foreign');
             // (nometabella,nomecolonna,Keyname)
             // elimina la colonna
             $table->dropColumn('category_id');

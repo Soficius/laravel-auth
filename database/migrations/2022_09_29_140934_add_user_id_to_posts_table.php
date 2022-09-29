@@ -17,7 +17,7 @@ class AddUserIdToPostsTable extends Migration
             // inseriamo la colonna
             $table->unsignedBigInteger('user_id')->nullable()->after('id');
             // definiamo la foreign key
-            $table->foreign('user_id')->references('id')->on('posts')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 
@@ -30,7 +30,7 @@ class AddUserIdToPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             // elimina la relazione (FK)
-            $table->dropForeign('posts_user_id_foreing');
+            $table->dropForeign('posts_user_id_foreign');
             // (nometabella,nomecolonna,Keyname)
             // elimina la colonna
             $table->dropColumn('user_id');
