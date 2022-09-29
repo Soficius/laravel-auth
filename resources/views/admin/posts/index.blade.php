@@ -17,6 +17,7 @@
                 <th scope="col">Immagine</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Titolo</th>
+                <th scope="col">Autore</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Creato il</th>
                 <th scope="col">Modificato il</th>
@@ -36,6 +37,7 @@
                         @endif
                     </td>
                     <td>{{ $post->title }}</td>
+                    <td>{{ $post->user->name }}</td>
                     <td>{{ $post->slug }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td>{{ $post->updated_at }}</td>
@@ -52,7 +54,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6">
+                    <td colspan="9">
                         <h4 class="text-center">Nessun Post</h4>
                     </td>
                 </tr>
