@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function posts()
+    {
+        // utilizziamo il verbp hasMany perchè category è l'istanza forte
+        return $this->hasMany('App\Models\Post');
+    }
 }

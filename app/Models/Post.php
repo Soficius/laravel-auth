@@ -13,4 +13,9 @@ class Post extends Model
         // il verbo che usiamo è belong perche post è l'istanza debole
         return $this->belongsTo('App\Models\Category');
     }
+    public function user()
+    {
+        // il verbo che usiamo è belong perche post è l'istanza debole
+        return $this->belongsTo('App\User');
+    }
 }
