@@ -19,6 +19,7 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
 
+    Route::get('/users', 'UserController@index')->name('users.index');
     Route::resource('posts', PostController::class);
     Route::get('/{any}', function () {
         abort('404');

@@ -43,7 +43,7 @@ class User extends Authenticatable
     }
     public function userDetail()
     {
-        // il verbo che usiamo è belong perche post è l'istanza debole
-        return $this->belongsTo('App\Models\UserDetail');
+        // utilizziamo il verbo hasOne perchè User è relazione 1 a 1 e la prendiamo per principale
+        return $this->hasOne('App\Models\UserDetail');
     }
 }

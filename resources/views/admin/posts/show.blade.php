@@ -9,7 +9,7 @@
         </div>
     </header>
     <main class="justify-content-center d-flex mt-5">
-        <div class="card mb-3 -flex justify-content-center" style="max-width: 540px;">
+        <div class="card mb-3" style="max-width: 540px; min-width: 800px">
             <div class="row no-gutters">
                 <div class="col-md-4">
                     <img src="{{ $post->image }}" alt="{{ $post->title }}" class="w-100 h-100">
