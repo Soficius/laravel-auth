@@ -18,4 +18,9 @@ class Post extends Model
         // il verbo che usiamo è belong perche post è l'istanza debole
         return $this->belongsTo('App\User');
     }
+    public function tags()
+    {
+        // il verbo che usiamo è belongsTomany perchè siamo una relazione many to many
+        return $this->belongsToMany('App\Models\Tag');
+    }
 }
