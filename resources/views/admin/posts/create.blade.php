@@ -30,6 +30,18 @@
                     @endforeach
                 </select>
             </div>
+            @if (count($tags))
+                <fieldset>
+                    <h4>Tags</h4>
+                    @foreach ($tags as $tag)
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="{{ $tag->label }}" name="tags[]"
+                                value="{{ $tag->id }}">
+                            <label class="form-check-label" for="{{ $tag->label }}">{{ $tag->label }}</label>
+                        </div>
+                    @endforeach
+                </fieldset>
+            @endif
             <div class="mt-4">
                 <button type="submit" class="btn btn-success">Salva</button>
             </div>

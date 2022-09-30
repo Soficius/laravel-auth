@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
@@ -33,7 +34,9 @@ class PostController extends Controller
         $post = new Post();
         // con select mi passo solo i campi di cui ho bisogno
         $categories = Category::select('id', 'label')->get();
-        return view('admin.posts.create', compact('post', 'categories'));
+        // con select mi passo solo i campi di cui ho bisogno
+        $tags = Tag::select('id', 'label')->get();
+        return view('admin.posts.create', compact('post', 'categories', 'tags'));
     }
 
     /**
