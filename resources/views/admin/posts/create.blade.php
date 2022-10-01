@@ -36,7 +36,9 @@
                     @foreach ($tags as $tag)
                         <div class="form-check form-check-inline">
                             <input type="checkbox" class="form-check-input" id="{{ $tag->label }}" name="tags[]"
-                                value="{{ $tag->id }}">
+                                value="{{ $tag->id }}" {{-- facciamo l'if cosi quando ricarichiamo la pagina non perdo i checkbox selezionati
+                                e mettiamo dentro l'old un secondo parametro cosi la pagina non mi dà errore quando acceddo e ooviamente non ho ancora selzionato nulla --}}
+                                @if (in_array($tag->id, old('tags', []))) checked @endif>
                             <label class="form-check-label" for="{{ $tag->label }}">{{ $tag->label }}</label>
                         </div>
                     @endforeach

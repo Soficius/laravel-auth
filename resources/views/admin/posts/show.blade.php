@@ -33,6 +33,13 @@
                                 Nessuna
                             @endif
                         </p>
+                        <p><strong>Tags:</strong>
+                            @forelse ($post->tags as $tag)
+                                <span>{{ $tag->label }}</span>
+                            @empty
+                                Nessun Tag
+                            @endforelse
+                        </p>
                         <p>Creato il<time> {{ $post->created_at }} </time></p>
                         <p>Modificato il<time> {{ $post->updated_at }} </time> </p>
                     </div>

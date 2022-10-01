@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <header>
-        <h1 class="text-center">Crea un nuovo post</h1>
+        <h1 class="text-center">Modifica post</h1>
     </header>
     <main class="container">
         <form action="{{ route('admin.posts.update', $post) }}" method="POST">
@@ -26,11 +26,25 @@
                 <select class="form-control" id="category_id" name="category_id">
                     <option>Nessuna Categoria</option>
                     @foreach ($categories as $category)
-                        <option @if (old('category_id') == $category->id) selected @endif value="{{ $category->id }}">
+                        <option {{ $category->id == $post->category_id ? 'selected' : '' }} value="{{ $category->id }}">
                             {{ $category->label }}</option>
                     @endforeach
                 </select>
             </div>
+            @if (count($tags))
+                <fieldset>
+                    <h4>Tags</h4>
+                    @foreach ($tags as $tag)
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="{{ $tag->label }}" name="tags[]"
+                                value="{{ $tag->id }}" {{-- facciamo l'if cosi quando ricarichiamo la pagina non perdo i checkbox selezionati
+                                e mettiamo dentro l'old un secondo parametro cosi la pagina non mi dà errore quando acceddo e ooviamente non ho ancora selzionato nulla --}}
+                                @if (in_array($tag->id, old('tags', $prev_tags))) checked @endif>
+                            <label class="form-check-label" for="{{ $tag->label }}">{{ $tag->label }}</label>
+                        </div>
+                    @endforeach
+                </fieldset>
+            @endif
             <div>
                 <button type="submit" class="btn btn-success">Salva</button>
             </div>

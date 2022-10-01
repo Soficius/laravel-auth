@@ -15,12 +15,13 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Immagine</th>
+                <th scope="col">Tags</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Titolo</th>
                 <th scope="col">Autore</th>
                 <th scope="col">Slug</th>
-                <th scope="col">Creato il</th>
-                <th scope="col">Modificato il</th>
+                <th scope="col">Creato</th>
+                <th scope="col">Modificato</th>
                 <th scope="col" class="text-center">Azioni</th>
             </tr>
         </thead>
@@ -29,6 +30,13 @@
                 <tr>
                     <th scope="row">{{ $post->id }}</th>
                     <td> <img src="{{ $post->image }}" alt="" class="img-fluid"></td>
+                    <td>
+                        @forelse ($post->tags as $tag)
+                            <span>{{ $tag->label }}</span>
+                        @empty
+                            Nessun Tag
+                        @endforelse
+                    </td>
                     <td>
                         {{-- in questo modo se non scelgo la categoria il codise non va in errore --}}
                         @if ($post->category)
@@ -62,7 +70,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="9">
+                    <td colspan="10">
                         <h4 class="text-center">Nessun Post</h4>
                     </td>
                 </tr>
