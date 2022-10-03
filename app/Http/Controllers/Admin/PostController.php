@@ -125,7 +125,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         // faccio la condizione per contare se il post ha dei tags per toglierli e poi eliminare il post
-        if (count($post->tags)) $post->tags->detach();
+        if (count($post->tags)) $post->tags()->detach();
         $post->delete();
 
         return redirect()->route('admin.posts.index')
